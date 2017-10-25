@@ -1,7 +1,7 @@
 const networkFetchQuery = require('./networkFetchQuery');
 const testQuery = require('./testQuery');
 
-module.exports = async function ({
+module.exports = function ({
   fetchQuery,
   Environment,
   RecordSource,
@@ -16,11 +16,9 @@ module.exports = async function ({
     store,
   });
 
-  const data = await fetchQuery(
+  return fetchQuery(
     environment,
     testQuery,
     {}
   );
-
-  return data;
 }
