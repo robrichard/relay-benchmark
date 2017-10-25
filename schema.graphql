@@ -1,0 +1,128 @@
+type Agency {
+  language: String
+  name: String
+  routes: [Route]
+  timezone: String
+  url: String
+}
+
+type DisplayBoard {
+  items: [DisplayBoardListItem]
+}
+
+type DisplayBoardListItem {
+  name: String
+  color: String
+  textColor: String
+  minutesAway: [Int]
+}
+
+enum DropOff {
+  # Regularly scheduled drop off
+  REGULAR
+
+  # No drop off available
+  NOT_AVAILABLE
+
+  # Must phone agency to arrange drop off
+  MUST_PHONE
+
+  # Must coordinate with driver to arrange drop off
+  MUST_COORDINATE
+}
+
+enum PickUpType {
+  # Regularly scheduled pickup
+  REGULAR
+
+  # No pickup available
+  NOT_AVAILABLE
+
+  # Must phone agency to arrange pickup
+  MUST_PHONE
+
+  # Must coordinate with driver to arrange pickup
+  MUST_COORDINATE
+}
+
+type Query {
+  agencies: [Agency]
+  stops(stopIds: [String]): [Stop]
+  displayBoard(stopName: String!): DisplayBoard
+}
+
+type Route {
+  color: String
+  longName: String
+  shortName: String
+  textColor: String
+  type: RouteType
+  trips: [Trip]
+}
+
+enum RouteType {
+  # Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.
+  TRAM
+
+  # Subway, Metro. Any underground rail system within a metropolitan area.
+  METRO
+
+  # Rail. Used for intercity or long-distance travel.
+  RAIL
+
+  # Bus. Used for short- and long-distance bus routes.
+  BUS
+
+  # Ferry. Used for short- and long-distance boat service.
+  FERRY
+
+  # Cable car. Used for street-level cable cars where the cable runs beneath the car.
+  CABLE_CAR
+
+  # Gondola, Suspended cable car. Typically used for aerial cable cars where the car is suspended from the cable.
+  GONDOLA
+
+  # Funicular. Any rail system designed for steep inclines.
+  FUNICULAR
+}
+
+type Service {
+  start: String
+  end: String
+  isActive: Boolean
+  days: ServiceDays
+}
+
+type ServiceDays {
+  monday: Boolean
+  tuesday: Boolean
+  wednesday: Boolean
+  thursday: Boolean
+  friday: Boolean
+  saturday: Boolean
+  sunday: Boolean
+}
+
+type Stop {
+  name: String
+  lat: Float
+  lon: Float
+  stopTimes(nextArriving: Int, isActive: Boolean): [StopTime]
+}
+
+type StopTime {
+  arrival: String
+  arrivalMinutes: String
+  departure: String
+  distance: Float
+  dropoffType: DropOff
+  pickupType: PickUpType
+  stop: Stop
+  trip: Trip
+}
+
+type Trip {
+  headsign: String
+  service: Service
+  stops: [StopTime]
+}

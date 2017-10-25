@@ -1,0 +1,35 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add react-relay relay-runtime relay-context-provider dibs-react-relay-server dibs-relay-runtime-server graphql graphql-tools relay-compiler babel-register babel-plugin-relay
+
+PATH: 
+  /usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/ImageMagick/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mongodb/bin:/opt/ImageMagick/bin:/Users/rob/projects/env-boot
+
+Yarn version: 
+  1.1.0
+
+Node version: 
+  8.5.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "relay-benchmark",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: http://npm.intranet.1stdibs.com:4783/react-relay: ETIMEDOUT
+      at Timeout._onTimeout (/usr/local/lib/node_modules/yarn/lib/cli.js:122581:19)
+      at ontimeout (timers.js:469:11)
+      at tryOnTimeout (timers.js:304:5)
+      at Timer.listOnTimeout (timers.js:264:5)

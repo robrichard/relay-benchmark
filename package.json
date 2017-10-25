@@ -1,0 +1,21 @@
+{
+  "name": "relay-benchmark",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "relay": "relay-compiler --schema=./schema.graphql --src=./src",
+    "babel": "babel src --out-dir dist",
+    "start": "yarn relay && yarn babel && node index.js"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-relay": "^1.4.1",
+    "benchmark": "^2.1.4",
+    "dibs-react-relay-server": "^1.4.1",
+    "dibs-relay-runtime-server": "^1.4.1",
+    "react-relay": "^1.4.1",
+    "relay-compiler": "^1.4.1",
+    "relay-runtime": "^1.4.1"
+  }
+}
