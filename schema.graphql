@@ -1,5 +1,5 @@
 type Agency {
-  language: String
+  language: ID
   name: String
   routes: [Route]
   timezone: String

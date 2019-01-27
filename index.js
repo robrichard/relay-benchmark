@@ -1,6 +1,6 @@
 const Benchmark = require('benchmark');
 const Relay = require('relay-runtime');
-const ForkedRelay = require('dibs-relay-runtime-server');
+const ForkedRelay = require('forked-relay-runtime');
 const runBenchmark = require('./dist/runBenchmark');
 const suite = new Benchmark.Suite;
 
@@ -8,14 +8,14 @@ process.on('unhandledRejection', e => console.error(e));
 
 // add tests 
 suite
-  .add('Standard Relay', {
+  .add('Relay: inlineRequires: true', {
     defer: true,
     fn(deferred) {
       runBenchmark(Relay)
         .then(() => deferred.resolve());
     }
   })
-  .add('Forked Relay', {
+  .add('Relay: inlineRequires: false', {
     defer: true,
     fn(deferred) {
       runBenchmark(ForkedRelay)

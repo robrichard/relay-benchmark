@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-plugin-relay": "^1.4.1",
+    "babel-plugin-relay": "2.0.0",
     "benchmark": "^2.1.4",
-    "dibs-react-relay-server": "^1.4.1",
-    "dibs-relay-runtime-server": "^1.4.1",
-    "react-relay": "^1.4.1",
-    "relay-compiler": "^1.4.1",
-    "relay-runtime": "^1.4.1"
+    "forked-relay-runtime": "file:./forked-relay-runtime-v2.0.0.tgz",
+    "graphql": "^14.1.1",
+    "react-relay": "2.0.0",
+    "relay-compiler": "2.0.0",
+    "relay-runtime": "2.0.0"
   }
 }
